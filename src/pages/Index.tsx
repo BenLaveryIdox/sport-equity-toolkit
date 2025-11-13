@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ProblemStatement from "@/components/ProblemStatement";
 import SolutionConcept from "@/components/SolutionConcept";
+import Timeline from "@/components/Timeline";
 import Resources from "@/components/Resources";
 import CallToAction from "@/components/CallToAction";
 
@@ -10,6 +11,7 @@ const Index = () => {
       <Hero />
       <ProblemStatement />
       <SolutionConcept />
+      <Timeline />
       <Resources />
       <CallToAction />
     </div>
