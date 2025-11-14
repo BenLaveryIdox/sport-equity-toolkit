@@ -235,22 +235,24 @@ const CampaignDesign = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-all hover:-translate-y-2">
-              <CardContent className="pt-8 pb-8">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Megaphone className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-center text-foreground">Awareness Posters</h3>
-                <p className="text-muted-foreground text-sm text-center leading-relaxed mb-4">
-                  Print and digital posters for sports facilities highlighting the importance of inclusion
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  <Badge variant="outline" className="text-xs">Print-Ready</Badge>
-                  <Badge variant="outline" className="text-xs">Digital</Badge>
-                  <Badge variant="outline" className="text-xs">Multilingual</Badge>
-                </div>
-              </CardContent>
-            </Card>
+            <Link to="/awareness-posters" className="block">
+              <Card className="hover:shadow-lg transition-all hover:-translate-y-2">
+                <CardContent className="pt-8 pb-8">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Megaphone className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-center text-foreground">Awareness Posters</h3>
+                  <p className="text-muted-foreground text-sm text-center leading-relaxed mb-4">
+                    Print and digital posters for sports facilities highlighting the importance of inclusion
+                  </p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="text-xs">Print-Ready</Badge>
+                    <Badge variant="outline" className="text-xs">Digital</Badge>
+                    <Badge variant="outline" className="text-xs">Multilingual</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
 
             <Card className="hover:shadow-lg transition-all hover:-translate-y-2 bg-gradient-to-br from-primary/5 to-accent/5">
               <CardContent className="pt-8 pb-8">
