@@ -296,14 +296,14 @@ const ExploreCampaign = () => {
             support the cause, we'd love to hear from you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/">
+            <Link to="/campaign-design">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Contact Us
+                View Campaign Design
               </Button>
             </Link>
             <Link to="/">
               <Button size="lg" variant="outline">
-                View Resources
+                Back to Home
               </Button>
             </Link>
           </div>
