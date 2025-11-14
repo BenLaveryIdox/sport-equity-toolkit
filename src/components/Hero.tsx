@@ -34,13 +34,15 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-transparent border-2 border-white text-white hover:bg-white/10 transition-all"
-            >
-              View Resources
-            </Button>
+            <Link to="/campaign-design">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-transparent border-2 border-white text-white hover:bg-white/10 transition-all"
+              >
+                View Campaign Design
+              </Button>
+            </Link>
           </div>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
