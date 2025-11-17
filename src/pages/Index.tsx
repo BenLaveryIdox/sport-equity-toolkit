@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ProblemStatement from "@/components/ProblemStatement";
 import SolutionConcept from "@/components/SolutionConcept";
@@ -8,6 +9,7 @@ import CallToAction from "@/components/CallToAction";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       <Hero />
       <ProblemStatement />
       <SolutionConcept />

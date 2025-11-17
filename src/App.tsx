@@ -7,6 +7,11 @@ import Index from "./pages/Index";
 import ExploreCampaign from "./pages/ExploreCampaign";
 import CampaignDesign from "./pages/CampaignDesign";
 import AwarenessPosters from "./pages/AwarenessPosters";
+import JoinMovement from "./pages/JoinMovement";
+import PolicyRecommendations from "./pages/PolicyRecommendations";
+import VisibilityCampaign from "./pages/VisibilityCampaign";
+import EducationalResources from "./pages/EducationalResources";
+import CommunityEngagement from "./pages/CommunityEngagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +27,11 @@ const App = () => (
           <Route path="/explore" element={<ExploreCampaign />} />
           <Route path="/campaign-design" element={<CampaignDesign />} />
           <Route path="/awareness-posters" element={<AwarenessPosters />} />
+          <Route path="/join-movement" element={<JoinMovement />} />
+          <Route path="/policy-recommendations" element={<PolicyRecommendations />} />
+          <Route path="/visibility-campaign" element={<VisibilityCampaign />} />
+          <Route path="/educational-resources" element={<EducationalResources />} />
+          <Route path="/community-engagement" element={<CommunityEngagement />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
