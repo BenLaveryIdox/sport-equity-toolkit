@@ -1,10 +1,29 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, User } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check initial session
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+    };
+    checkUser();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const navLinks = [
     { to: "/explore", label: "Explore Campaign" },
@@ -34,6 +53,23 @@ const Navigation = () => {
                 </Button>
               </Link>
             ))}
+            {user ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-foreground hover:text-primary transition-colors"
+                asChild
+              >
+                <Link to="/profile">
+                  <User className="w-4 h-4 mr-2" />
+                  Profile
+                </Link>
+              </Button>
+            ) : (
+              <Button variant="default" size="sm" asChild>
+                <Link to="/auth">Login</Link>
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -56,6 +92,22 @@ const Navigation = () => {
                 </Button>
               </Link>
             ))}
+            {user ? (
+              <Button
+                variant="ghost"
+                className="text-foreground hover:text-primary transition-colors w-full justify-start"
+                asChild
+              >
+                <Link to="/profile" onClick={() => setIsOpen(false)}>
+                  <User className="w-4 h-4 mr-2" />
+                  Profile
+                </Link>
+              </Button>
+            ) : (
+              <Button variant="default" className="w-full" asChild>
+                <Link to="/auth" onClick={() => setIsOpen(false)}>Login</Link>
+              </Button>
+            )}
           </div>
         )}
       </div>
