@@ -12,6 +12,7 @@ import PolicyRecommendations from "./pages/PolicyRecommendations";
 import VisibilityCampaign from "./pages/VisibilityCampaign";
 import EducationalResources from "./pages/EducationalResources";
 import CommunityEngagement from "./pages/CommunityEngagement";
+import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/visibility-campaign" element={<VisibilityCampaign />} />
           <Route path="/educational-resources" element={<EducationalResources />} />
           <Route path="/community-engagement" element={<CommunityEngagement />} />
+          <Route path="/quiz" element={<Quiz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
