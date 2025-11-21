@@ -235,6 +235,32 @@ const EducationalResources = () => {
             </TabsContent>
           </Tabs>
 
+          <Card className="border-2 border-primary mb-8">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <GraduationCap className="h-5 w-5 text-primary" />
+                Test Your Knowledge
+              </CardTitle>
+              <CardDescription>
+                Take our comprehensive LGBTQ+ inclusivity assessment to evaluate your understanding and earn a certificate of completion
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm font-medium">✓ 10 comprehensive questions</p>
+                  <p className="text-sm font-medium">✓ Instant feedback and explanations</p>
+                  <p className="text-sm font-medium">✓ Certificate upon successful completion</p>
+                </div>
+                <Link to="/quiz">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Start Quiz
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-campaign-end/5">
             <CardContent className="pt-6">
               <div className="text-center">
