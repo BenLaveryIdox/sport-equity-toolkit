@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -7,6 +8,8 @@ import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, XCircle, Award, ArrowLeft, RotateCcw } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface Question {
   id: number;
@@ -151,10 +154,27 @@ const questions: Question[] = [
 ];
 
 const Quiz = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+    };
+    checkUser();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const handleAnswer = (questionId: number, answerIndex: number) => {
     setAnswers({ ...answers, [questionId]: answerIndex });
@@ -172,12 +192,39 @@ const Quiz = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const correctAnswers = questions.filter(
       (q) => answers[q.id] === q.correctAnswer
     ).length;
     setScore(correctAnswers);
     setShowResults(true);
+
+    // Save quiz result if user is logged in
+    if (user) {
+      const passed = correctAnswers === questions.length;
+      const { error } = await supabase
+        .from("quiz_results")
+        .insert({
+          user_id: user.id,
+          score: correctAnswers,
+          total_questions: questions.length,
+          passed: passed,
+        });
+
+      if (error) {
+        console.error("Error saving quiz result:", error);
+        toast({
+          title: "Error",
+          description: "Failed to save your certificate. Please try again.",
+          variant: "destructive",
+        });
+      } else if (passed) {
+        toast({
+          title: "Congratulations!",
+          description: "Your certificate has been saved to your profile.",
+        });
+      }
+    }
   };
 
   const handleRetake = () => {
@@ -185,6 +232,14 @@ const Quiz = () => {
     setAnswers({});
     setShowResults(false);
     setScore(0);
+  };
+
+  const promptLogin = () => {
+    toast({
+      title: "Login required",
+      description: "Please login to save your certificates.",
+    });
+    navigate("/auth");
   };
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -220,10 +275,21 @@ const Quiz = () => {
                   <div className="text-center">
                     <h2 className="text-2xl font-bold mb-4">Certificate of Completion</h2>
                     <p className="text-lg mb-2">This certifies that</p>
-                    <p className="text-3xl font-bold my-4">Participant</p>
+                    <p className="text-3xl font-bold my-4">{user ? user.email : "Participant"}</p>
                     <p className="text-lg mb-2">has successfully completed the</p>
                     <p className="text-2xl font-bold my-4">LGBTQ+ Inclusivity in Sports Assessment</p>
                     <p className="text-sm mt-6">Date: {new Date().toLocaleDateString()}</p>
+                    {user ? (
+                      <p className="text-sm mt-2">✓ Saved to your profile</p>
+                    ) : (
+                      <Button 
+                        variant="secondary" 
+                        className="mt-4"
+                        onClick={promptLogin}
+                      >
+                        Login to Save Certificate
+                      </Button>
+                    )}
                     <Button 
                       variant="secondary" 
                       className="mt-6"
@@ -313,6 +379,19 @@ const Quiz = () => {
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
       <Navigation />
       <div className="container mx-auto px-4 py-12">
+        {!user && (
+          <Card className="max-w-2xl mx-auto mb-8 border-primary/50">
+            <CardContent className="pt-6">
+              <p className="text-center mb-4">
+                Login to save your certificates to your profile!
+              </p>
+              <Button onClick={promptLogin} className="w-full">
+                Login or Sign Up
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
         <div className="max-w-3xl mx-auto">
           <Link to="/">
             <Button variant="ghost" className="mb-6">
