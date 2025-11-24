@@ -13,6 +13,8 @@ import VisibilityCampaign from "./pages/VisibilityCampaign";
 import EducationalResources from "./pages/EducationalResources";
 import CommunityEngagement from "./pages/CommunityEngagement";
 import Quiz from "./pages/Quiz";
+import TransgenderInclusionQuiz from "./pages/TransgenderInclusionQuiz";
+import DisabilityInclusionQuiz from "./pages/DisabilityInclusionQuiz";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
@@ -36,6 +38,8 @@ const App = () => (
           <Route path="/educational-resources" element={<EducationalResources />} />
           <Route path="/community-engagement" element={<CommunityEngagement />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz/transgender-inclusion" element={<TransgenderInclusionQuiz />} />
+          <Route path="/quiz/disability-inclusion" element={<DisabilityInclusionQuiz />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

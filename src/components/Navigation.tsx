@@ -27,7 +27,6 @@ const Navigation = () => {
 
   const navLinks = [
     { to: "/explore", label: "Explore Campaign" },
-    { to: "/campaign-design", label: "Campaign Design" },
     { to: "/policy-recommendations", label: "Policy Recommendations" },
     { to: "/visibility-campaign", label: "Visibility Campaign" },
     { to: "/educational-resources", label: "Educational Resources" },
@@ -41,7 +40,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="font-bold text-xl bg-gradient-to-r from-primary to-campaign-end bg-clip-text text-transparent">
-            EDI Sports Initiative
+            EDI SPORTS
           </Link>
 
           {/* Desktop Navigation */}

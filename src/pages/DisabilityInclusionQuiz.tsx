@@ -23,137 +23,137 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    category: "Transgender Inclusion",
-    question: "What is the most appropriate way to refer to a transgender athlete in your sports organization?",
+    category: "Disability Awareness",
+    question: "What is the most appropriate language when referring to someone with a disability?",
     options: [
-      "Use their birth name until they legally change it",
-      "Use their chosen name and pronouns immediately",
-      "Wait until other team members are comfortable",
-      "Avoid using names and use jersey numbers only"
+      "Disabled person",
+      "Person with a disability (person-first language)",
+      "Handicapped individual",
+      "Special needs athlete"
     ],
     correctAnswer: 1,
-    explanation: "Respecting an athlete's chosen name and pronouns immediately is fundamental to creating an inclusive environment. This shows respect for their identity and dignity."
+    explanation: "Person-first language emphasizes the person before the disability, though it's also important to respect individual preferences. Some people prefer identity-first language (e.g., 'disabled person')."
   },
   {
     id: 2,
-    category: "Transgender Inclusion",
-    question: "Which of the following is the best practice for locker room policies regarding transgender athletes?",
+    category: "Accessibility",
+    question: "What is a reasonable accommodation in sports for an athlete with a disability?",
     options: [
-      "Transgender athletes must use separate facilities",
-      "Allow athletes to use facilities matching their gender identity with privacy options for all",
-      "Require medical documentation before facility access",
-      "Let the majority team members vote on the policy"
+      "Any modification they request regardless of cost",
+      "Modifications that enable participation without fundamentally altering the sport",
+      "No modifications to maintain fairness",
+      "Only equipment-based modifications"
     ],
     correctAnswer: 1,
-    explanation: "Inclusive policies allow athletes to use facilities that match their gender identity while ensuring privacy options are available for everyone who wants them."
+    explanation: "Reasonable accommodations enable participation without fundamentally altering the nature of the sport, balancing inclusion with the integrity of the activity."
   },
   {
     id: 3,
-    category: "Policy Development",
-    question: "When updating EDI policies, which stakeholders should be consulted?",
+    category: "Physical Accessibility",
+    question: "Which of the following is NOT a key component of accessible sports facilities?",
     options: [
-      "Only senior management and board members",
-      "LGBTQ+ athletes, staff, community members, and advocacy groups",
-      "Just legal advisors to ensure compliance",
-      "Only coaches and team managers"
+      "Ramps and elevators for wheelchair access",
+      "Accessible parking spaces near entrances",
+      "Separate training times for athletes with disabilities",
+      "Accessible locker rooms and restrooms"
     ],
-    correctAnswer: 1,
-    explanation: "Effective inclusive policies require input from those directly affected, including LGBTQ+ community members and advocacy groups, alongside other stakeholders."
+    correctAnswer: 2,
+    explanation: "Inclusive facilities should enable all athletes to participate together. Segregation by separate training times undermines inclusion; physical accessibility features allow integrated participation."
   },
   {
     id: 4,
-    category: "LGBTQ+ Awareness",
-    question: "What does it mean when someone identifies as non-binary?",
+    category: "Communication",
+    question: "When communicating with a deaf or hard-of-hearing athlete, what should you do?",
     options: [
-      "They are confused about their gender",
-      "Their gender identity is neither exclusively male nor female",
-      "They are transitioning between genders",
-      "They prefer not to disclose their gender"
+      "Speak louder and slower",
+      "Face them directly, speak clearly, and provide written information or sign language interpreter when needed",
+      "Avoid direct communication and rely on teammates to relay information",
+      "Only use written communication"
     ],
     correctAnswer: 1,
-    explanation: "Non-binary is a valid gender identity where someone's gender is neither exclusively male nor female. It's part of the diverse spectrum of gender identities."
+    explanation: "Effective communication includes facing the person (for lip reading), speaking clearly, and providing accommodations like interpreters or written materials as needed for the individual."
   },
   {
     id: 5,
-    category: "LGBTQ+ Awareness",
-    question: "Which statement about sexual orientation is correct?",
+    category: "Inclusive Coaching",
+    question: "What is the best approach when coaching an athlete with an intellectual disability?",
     options: [
-      "Sexual orientation can be changed through coaching or therapy",
-      "Sexual orientation is a choice people make",
-      "Sexual orientation is an inherent aspect of a person's identity",
-      "Athletes should keep their sexual orientation private"
+      "Treat them like younger children",
+      "Use clear, concrete language and break down skills into smaller steps while respecting their age and abilities",
+      "Lower all expectations significantly",
+      "Focus only on participation, not skill development"
     ],
-    correctAnswer: 2,
-    explanation: "Sexual orientation is an inherent aspect of who someone is, not a choice or something that can be changed. Creating safe spaces for all orientations is essential."
+    correctAnswer: 1,
+    explanation: "Effective coaching adapts teaching methods to the individual's learning style while maintaining age-appropriate respect and developmentally appropriate expectations and goals."
   },
   {
     id: 6,
-    category: "Inclusive Language",
-    question: "What is the best way to ask someone about their pronouns?",
+    category: "Disability Etiquette",
+    question: "If you're unsure whether someone needs assistance, what should you do?",
     options: [
-      "Assume based on their appearance",
-      "Share your own pronouns and invite them to share theirs",
-      "Only ask if you're unsure",
-      "Wait for them to correct you if you're wrong"
+      "Provide help immediately without asking",
+      "Ignore them to avoid being offensive",
+      "Ask if they would like assistance and respect their answer",
+      "Wait for them to struggle before offering help"
     ],
-    correctAnswer: 1,
-    explanation: "Sharing your own pronouns and creating space for others to share theirs normalizes the practice and makes it safer for everyone to express their identity."
+    correctAnswer: 2,
+    explanation: "Always ask before helping, and respect the person's autonomy. They know their capabilities and needs better than anyone else."
   },
   {
     id: 7,
-    category: "Inclusive Language",
-    question: "Which term is most inclusive when addressing a group of athletes?",
+    category: "Adaptive Equipment",
+    question: "What is the purpose of adaptive sports equipment?",
     options: [
-      "Ladies and gentlemen",
-      "Guys",
-      "Everyone or team",
-      "Boys and girls"
+      "To give athletes with disabilities an unfair advantage",
+      "To enable athletes with disabilities to participate safely and effectively",
+      "To segregate athletes with disabilities",
+      "To make sports easier for everyone"
     ],
-    correctAnswer: 2,
-    explanation: "Gender-neutral terms like 'everyone,' 'team,' or 'athletes' are inclusive of all gender identities and don't make assumptions about who is in the group."
+    correctAnswer: 1,
+    explanation: "Adaptive equipment levels the playing field by enabling athletes with disabilities to participate fully. It's about equal access, not unfair advantage."
   },
   {
     id: 8,
-    category: "Policy Implementation",
-    question: "How often should EDI policies be reviewed and updated?",
+    category: "Inclusive Programming",
+    question: "What is unified sports programming?",
     options: [
-      "Only when complaints are received",
-      "Every 5-10 years",
-      "Annually with ongoing monitoring",
-      "Once created, policies don't need updates"
+      "Sports only for athletes with disabilities",
+      "Programs that bring together athletes with and without disabilities on the same team",
+      "Separate but equal sports leagues",
+      "Modified sports with reduced competition"
     ],
-    correctAnswer: 2,
-    explanation: "Regular annual reviews with ongoing monitoring ensure policies remain relevant, effective, and responsive to evolving understanding and community needs."
+    correctAnswer: 1,
+    explanation: "Unified sports promotes inclusion by having athletes with and without intellectual disabilities train and compete together on the same teams, fostering respect and understanding."
   },
   {
     id: 9,
-    category: "Allyship",
-    question: "What is the most effective way to be an ally to LGBTQ+ athletes?",
+    category: "Mental Health",
+    question: "How should sports organizations address mental health disabilities?",
     options: [
-      "Only speak up when asked directly",
-      "Actively challenge discriminatory language and behavior",
-      "Support LGBTQ+ athletes privately but remain neutral publicly",
-      "Focus solely on their athletic performance"
+      "Mental health is not a real disability",
+      "Recognize mental health conditions as legitimate disabilities requiring accommodations and support",
+      "Exclude athletes with mental health conditions to avoid liability",
+      "Only address physical disabilities"
     ],
     correctAnswer: 1,
-    explanation: "Active allyship means consistently challenging discrimination, creating safe spaces, and using your position to advocate for inclusive policies and practices."
+    explanation: "Mental health conditions are legitimate disabilities that may require accommodations. Creating supportive environments benefits all athletes' wellbeing."
   },
   {
     id: 10,
-    category: "Creating Safe Spaces",
-    question: "What is a key indicator of an LGBTQ+ inclusive sports environment?",
+    category: "Creating Inclusive Culture",
+    question: "What is the most important factor in creating disability-inclusive sports programs?",
     options: [
-      "Having at least one openly LGBTQ+ person on staff",
-      "Visible symbols of inclusion, clear policies, and regular training",
-      "Not discussing LGBTQ+ topics to avoid controversy",
-      "Separate but equal facilities for different groups"
+      "Having the most expensive adaptive equipment",
+      "Attitude of inclusion, willingness to make accommodations, and genuine commitment from leadership",
+      "Separate programs for athletes with disabilities",
+      "Lowering standards for everyone"
     ],
     correctAnswer: 1,
-    explanation: "Truly inclusive environments have visible commitment through symbols (like Pride flags), comprehensive policies, ongoing education, and active enforcement of inclusive practices."
+    explanation: "True inclusion starts with attitudes and commitment. While resources help, the most important factor is a genuine organizational commitment to inclusion and willingness to adapt."
   }
 ];
 
-const Quiz = () => {
+const DisabilityInclusionQuiz = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -199,7 +199,6 @@ const Quiz = () => {
     setScore(correctAnswers);
     setShowResults(true);
 
-    // Save quiz result if user is logged in
     if (user) {
       const passed = correctAnswers === questions.length;
       const { error } = await supabase
@@ -209,7 +208,7 @@ const Quiz = () => {
           score: correctAnswers,
           total_questions: questions.length,
           passed: passed,
-          quiz_type: 'general_lgbtq'
+          quiz_type: 'disability_inclusion'
         });
 
       if (error) {
@@ -266,7 +265,7 @@ const Quiz = () => {
               </CardTitle>
               <CardDescription className="text-lg">
                 {isPerfectScore
-                  ? "You've demonstrated excellent understanding of LGBTQ+ inclusivity!"
+                  ? "You've demonstrated excellent understanding of disability inclusion!"
                   : `You scored ${score} out of ${questions.length}. Review the answers below to learn more.`}
               </CardDescription>
             </CardHeader>
@@ -278,7 +277,7 @@ const Quiz = () => {
                     <p className="text-lg mb-2">This certifies that</p>
                     <p className="text-3xl font-bold my-4">{user ? user.email : "Participant"}</p>
                     <p className="text-lg mb-2">has successfully completed the</p>
-                    <p className="text-2xl font-bold my-4">LGBTQ+ Inclusivity in Sports Assessment</p>
+                    <p className="text-2xl font-bold my-4">Disability Inclusion in Sports Assessment</p>
                     <p className="text-sm mt-6">Date: {new Date().toLocaleDateString()}</p>
                     {user ? (
                       <p className="text-sm mt-2">✓ Saved to your profile</p>
@@ -434,9 +433,9 @@ const Quiz = () => {
 
               <div className="flex gap-4 mt-8">
                 <Button
-                  variant="outline"
                   onClick={handlePrevious}
                   disabled={currentQuestion === 0}
+                  variant="outline"
                   className="flex-1"
                 >
                   Previous
@@ -444,7 +443,7 @@ const Quiz = () => {
                 {currentQuestion === questions.length - 1 ? (
                   <Button
                     onClick={handleSubmit}
-                    disabled={Object.keys(answers).length !== questions.length}
+                    disabled={answers[currentQuestionData.id] === undefined}
                     className="flex-1"
                   >
                     Submit Quiz
@@ -459,10 +458,6 @@ const Quiz = () => {
                   </Button>
                 )}
               </div>
-
-              <p className="text-center text-sm text-muted-foreground mt-4">
-                {Object.keys(answers).length} of {questions.length} questions answered
-              </p>
             </CardContent>
           </Card>
         </div>
@@ -471,4 +466,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default DisabilityInclusionQuiz;
