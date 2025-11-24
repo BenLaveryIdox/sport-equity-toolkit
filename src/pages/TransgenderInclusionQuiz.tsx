@@ -23,137 +23,137 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    category: "Transgender Inclusion",
-    question: "What is the most appropriate way to refer to a transgender athlete in your sports organization?",
+    category: "Transgender Rights",
+    question: "What is the most respectful way to ask about someone's pronouns in a sports setting?",
     options: [
-      "Use their birth name until they legally change it",
-      "Use their chosen name and pronouns immediately",
-      "Wait until other team members are comfortable",
-      "Avoid using names and use jersey numbers only"
+      "Wait for them to volunteer the information",
+      "Share your own pronouns first and invite them to share theirs",
+      "Guess based on their appearance",
+      "Check official documents"
     ],
     correctAnswer: 1,
-    explanation: "Respecting an athlete's chosen name and pronouns immediately is fundamental to creating an inclusive environment. This shows respect for their identity and dignity."
+    explanation: "Normalizing pronoun sharing by introducing yourself with your pronouns creates a safe, inclusive space for everyone to express their identity."
   },
   {
     id: 2,
-    category: "Transgender Inclusion",
-    question: "Which of the following is the best practice for locker room policies regarding transgender athletes?",
+    category: "Policy Understanding",
+    question: "According to inclusive sports policies, when should a transgender athlete be allowed to compete in their affirmed gender category?",
     options: [
-      "Transgender athletes must use separate facilities",
-      "Allow athletes to use facilities matching their gender identity with privacy options for all",
-      "Require medical documentation before facility access",
-      "Let the majority team members vote on the policy"
+      "After completing all medical transition procedures",
+      "According to the specific sport's eligibility criteria, which should be evidence-based and inclusive",
+      "Never, they should only compete in mixed categories",
+      "Only after legal gender marker change"
     ],
     correctAnswer: 1,
-    explanation: "Inclusive policies allow athletes to use facilities that match their gender identity while ensuring privacy options are available for everyone who wants them."
+    explanation: "Inclusive policies should be based on scientific evidence and fairness principles specific to each sport, not blanket exclusions or unrealistic requirements."
   },
   {
     id: 3,
-    category: "Policy Development",
-    question: "When updating EDI policies, which stakeholders should be consulted?",
+    category: "Facility Access",
+    question: "What is the best practice for locker room access for transgender athletes?",
     options: [
-      "Only senior management and board members",
-      "LGBTQ+ athletes, staff, community members, and advocacy groups",
-      "Just legal advisors to ensure compliance",
-      "Only coaches and team managers"
+      "Mandate separate facilities for transgender athletes",
+      "Allow access to facilities matching their gender identity, with privacy options available for all",
+      "Require proof of medical transition",
+      "Let team vote on access"
     ],
     correctAnswer: 1,
-    explanation: "Effective inclusive policies require input from those directly affected, including LGBTQ+ community members and advocacy groups, alongside other stakeholders."
+    explanation: "Inclusive policies respect gender identity while ensuring privacy options are available for anyone who wants them, without singling out transgender individuals."
   },
   {
     id: 4,
-    category: "LGBTQ+ Awareness",
-    question: "What does it mean when someone identifies as non-binary?",
+    category: "Terminology",
+    question: "Which term should be avoided when referring to a transgender person's identity?",
     options: [
-      "They are confused about their gender",
-      "Their gender identity is neither exclusively male nor female",
-      "They are transitioning between genders",
-      "They prefer not to disclose their gender"
+      "Gender identity",
+      "Transgender",
+      "Transgendered (with 'ed' ending)",
+      "Trans"
     ],
-    correctAnswer: 1,
-    explanation: "Non-binary is a valid gender identity where someone's gender is neither exclusively male nor female. It's part of the diverse spectrum of gender identities."
+    correctAnswer: 2,
+    explanation: "'Transgendered' is grammatically incorrect and often considered offensive. The correct terms are 'transgender' (adjective) or 'trans' person."
   },
   {
     id: 5,
-    category: "LGBTQ+ Awareness",
-    question: "Which statement about sexual orientation is correct?",
+    category: "Medical Privacy",
+    question: "What level of medical information should a sports organization require from transgender athletes?",
     options: [
-      "Sexual orientation can be changed through coaching or therapy",
-      "Sexual orientation is a choice people make",
-      "Sexual orientation is an inherent aspect of a person's identity",
-      "Athletes should keep their sexual orientation private"
+      "Complete medical history and documentation",
+      "Only what is necessary for sport-specific eligibility, handled confidentially",
+      "Public disclosure to all team members",
+      "Detailed transition timeline"
     ],
-    correctAnswer: 2,
-    explanation: "Sexual orientation is an inherent aspect of who someone is, not a choice or something that can be changed. Creating safe spaces for all orientations is essential."
+    correctAnswer: 1,
+    explanation: "Medical privacy is paramount. Only sport-specific eligibility information should be required, handled confidentially by appropriate officials."
   },
   {
     id: 6,
-    category: "Inclusive Language",
-    question: "What is the best way to ask someone about their pronouns?",
+    category: "Name and Identity",
+    question: "How should you handle a situation where an athlete's legal name differs from their chosen name?",
     options: [
-      "Assume based on their appearance",
-      "Share your own pronouns and invite them to share theirs",
-      "Only ask if you're unsure",
-      "Wait for them to correct you if you're wrong"
+      "Always use the legal name on all documents",
+      "Use their chosen name in all contexts and update records when possible",
+      "Use legal name publicly, chosen name privately",
+      "Ask the athlete to use their legal name until changed"
     ],
     correctAnswer: 1,
-    explanation: "Sharing your own pronouns and creating space for others to share theirs normalizes the practice and makes it safer for everyone to express their identity."
+    explanation: "Respecting someone's chosen name affirms their identity. Organizations should use chosen names and work to update official records respectfully."
   },
   {
     id: 7,
-    category: "Inclusive Language",
-    question: "Which term is most inclusive when addressing a group of athletes?",
+    category: "Training and Education",
+    question: "What should be included in transgender awareness training for sports staff?",
     options: [
-      "Ladies and gentlemen",
-      "Guys",
-      "Everyone or team",
-      "Boys and girls"
+      "Basic terminology only",
+      "Comprehensive coverage of terminology, policies, respectful communication, and scenario-based learning",
+      "Medical information about transitioning",
+      "Legal requirements only"
     ],
-    correctAnswer: 2,
-    explanation: "Gender-neutral terms like 'everyone,' 'team,' or 'athletes' are inclusive of all gender identities and don't make assumptions about who is in the group."
+    correctAnswer: 1,
+    explanation: "Effective training is comprehensive, covering terminology, policies, communication skills, and practical scenarios to prepare staff for real situations."
   },
   {
     id: 8,
-    category: "Policy Implementation",
-    question: "How often should EDI policies be reviewed and updated?",
+    category: "Misgendering",
+    question: "If you accidentally use the wrong pronoun for a transgender athlete, what should you do?",
     options: [
-      "Only when complaints are received",
-      "Every 5-10 years",
-      "Annually with ongoing monitoring",
-      "Once created, policies don't need updates"
+      "Make a big apology and explain why you made the mistake",
+      "Briefly correct yourself, use the right pronoun, and move on",
+      "Ignore it and hope they didn't notice",
+      "Avoid using any pronouns for them in the future"
     ],
-    correctAnswer: 2,
-    explanation: "Regular annual reviews with ongoing monitoring ensure policies remain relevant, effective, and responsive to evolving understanding and community needs."
+    correctAnswer: 1,
+    explanation: "A quick correction and moving on shows respect without making the situation uncomfortable or centering your discomfort."
   },
   {
     id: 9,
-    category: "Allyship",
-    question: "What is the most effective way to be an ally to LGBTQ+ athletes?",
+    category: "Non-binary Athletes",
+    question: "How should sports organizations accommodate non-binary athletes?",
     options: [
-      "Only speak up when asked directly",
-      "Actively challenge discriminatory language and behavior",
-      "Support LGBTQ+ athletes privately but remain neutral publicly",
-      "Focus solely on their athletic performance"
+      "Force them to choose male or female categories",
+      "Create inclusive policies that consider non-binary identities and individual circumstances",
+      "Exclude them from competition",
+      "Create a separate non-binary category for all sports"
     ],
     correctAnswer: 1,
-    explanation: "Active allyship means consistently challenging discrimination, creating safe spaces, and using your position to advocate for inclusive policies and practices."
+    explanation: "Inclusive organizations work with non-binary athletes individually, considering their needs and sport-specific requirements rather than applying one-size-fits-all solutions."
   },
   {
     id: 10,
-    category: "Creating Safe Spaces",
-    question: "What is a key indicator of an LGBTQ+ inclusive sports environment?",
+    category: "Creating Inclusive Culture",
+    question: "What is the most important factor in creating a transgender-inclusive sports environment?",
     options: [
-      "Having at least one openly LGBTQ+ person on staff",
-      "Visible symbols of inclusion, clear policies, and regular training",
-      "Not discussing LGBTQ+ topics to avoid controversy",
-      "Separate but equal facilities for different groups"
+      "Having at least one transgender athlete or staff member",
+      "Comprehensive policies backed by visible leadership commitment, education, and consistent enforcement",
+      "Installing gender-neutral facilities",
+      "Avoiding all discussion of gender"
     ],
     correctAnswer: 1,
-    explanation: "Truly inclusive environments have visible commitment through symbols (like Pride flags), comprehensive policies, ongoing education, and active enforcement of inclusive practices."
+    explanation: "True inclusion requires comprehensive policies, visible leadership commitment, ongoing education, and consistent enforcement. It's about systemic change, not token gestures."
   }
 ];
 
-const Quiz = () => {
+const TransgenderInclusionQuiz = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -199,7 +199,6 @@ const Quiz = () => {
     setScore(correctAnswers);
     setShowResults(true);
 
-    // Save quiz result if user is logged in
     if (user) {
       const passed = correctAnswers === questions.length;
       const { error } = await supabase
@@ -209,7 +208,7 @@ const Quiz = () => {
           score: correctAnswers,
           total_questions: questions.length,
           passed: passed,
-          quiz_type: 'general_lgbtq'
+          quiz_type: 'transgender_inclusion'
         });
 
       if (error) {
@@ -266,7 +265,7 @@ const Quiz = () => {
               </CardTitle>
               <CardDescription className="text-lg">
                 {isPerfectScore
-                  ? "You've demonstrated excellent understanding of LGBTQ+ inclusivity!"
+                  ? "You've demonstrated excellent understanding of transgender inclusion!"
                   : `You scored ${score} out of ${questions.length}. Review the answers below to learn more.`}
               </CardDescription>
             </CardHeader>
@@ -278,7 +277,7 @@ const Quiz = () => {
                     <p className="text-lg mb-2">This certifies that</p>
                     <p className="text-3xl font-bold my-4">{user ? user.email : "Participant"}</p>
                     <p className="text-lg mb-2">has successfully completed the</p>
-                    <p className="text-2xl font-bold my-4">LGBTQ+ Inclusivity in Sports Assessment</p>
+                    <p className="text-2xl font-bold my-4">Transgender Inclusion in Sports Assessment</p>
                     <p className="text-sm mt-6">Date: {new Date().toLocaleDateString()}</p>
                     {user ? (
                       <p className="text-sm mt-2">✓ Saved to your profile</p>
@@ -434,9 +433,9 @@ const Quiz = () => {
 
               <div className="flex gap-4 mt-8">
                 <Button
-                  variant="outline"
                   onClick={handlePrevious}
                   disabled={currentQuestion === 0}
+                  variant="outline"
                   className="flex-1"
                 >
                   Previous
@@ -444,7 +443,7 @@ const Quiz = () => {
                 {currentQuestion === questions.length - 1 ? (
                   <Button
                     onClick={handleSubmit}
-                    disabled={Object.keys(answers).length !== questions.length}
+                    disabled={answers[currentQuestionData.id] === undefined}
                     className="flex-1"
                   >
                     Submit Quiz
@@ -459,10 +458,6 @@ const Quiz = () => {
                   </Button>
                 )}
               </div>
-
-              <p className="text-center text-sm text-muted-foreground mt-4">
-                {Object.keys(answers).length} of {questions.length} questions answered
-              </p>
             </CardContent>
           </Card>
         </div>
@@ -471,4 +466,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default TransgenderInclusionQuiz;

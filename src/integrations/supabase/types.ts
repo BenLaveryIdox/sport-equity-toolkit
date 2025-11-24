@@ -43,6 +43,7 @@ export type Database = {
           completed_at: string
           id: string
           passed: boolean
+          quiz_type: string
           score: number
           total_questions: number
           user_id: string
@@ -51,6 +52,7 @@ export type Database = {
           completed_at?: string
           id?: string
           passed: boolean
+          quiz_type?: string
           score: number
           total_questions: number
           user_id: string
@@ -59,6 +61,7 @@ export type Database = {
           completed_at?: string
           id?: string
           passed?: boolean
+          quiz_type?: string
           score?: number
           total_questions?: number
           user_id?: string

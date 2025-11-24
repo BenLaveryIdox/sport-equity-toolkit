@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Building2, Trophy, GraduationCap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { FileText, Building2, Trophy, GraduationCap, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Resources = () => {
   const organizations = [
@@ -8,6 +10,27 @@ const Resources = () => {
     { name: "LEAP Sports", icon: Trophy, status: "Researched" },
     { name: "PRIDE Sports", icon: Trophy, status: "Researched" },
     { name: "UWS ATHENA SWAN", icon: GraduationCap, status: "Analyzed" },
+  ];
+
+  const quizzes = [
+    {
+      title: "General LGBTQ+ Inclusivity",
+      description: "Comprehensive assessment covering all aspects of LGBTQ+ inclusion in sports",
+      path: "/quiz",
+      topics: ["Policy", "Language", "Allyship", "Safe Spaces"]
+    },
+    {
+      title: "Transgender Inclusion",
+      description: "Focused on understanding and supporting transgender athletes",
+      path: "/quiz/transgender-inclusion",
+      topics: ["Rights", "Facilities", "Terminology", "Policy"]
+    },
+    {
+      title: "Disability Inclusion",
+      description: "Creating accessible and inclusive sports environments for all abilities",
+      path: "/quiz/disability-inclusion",
+      topics: ["Accessibility", "Accommodation", "Communication", "Etiquette"]
+    }
   ];
 
   return (
@@ -71,6 +94,39 @@ const Resources = () => {
           </div>
 
           <Card className="p-8 md:p-12 border-2 bg-gradient-to-br from-card to-secondary">
+            <div className="flex items-center justify-center mb-6">
+              <Award className="h-8 w-8 text-primary mr-3" />
+              <h3 className="text-2xl font-bold text-foreground text-center">
+                Test Your Knowledge - Earn Certificates
+              </h3>
+            </div>
+            <p className="text-center text-muted-foreground mb-8">
+              Complete our interactive quizzes to demonstrate your understanding of EDI in sports. 
+              Perfect scores earn you certificates you can save to your profile!
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {quizzes.map((quiz, index) => (
+                <Card key={index} className="p-6 bg-card hover:shadow-lg transition-shadow">
+                  <h4 className="font-bold text-foreground mb-2">{quiz.title}</h4>
+                  <p className="text-sm text-muted-foreground mb-4">{quiz.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {quiz.topics.map((topic, idx) => (
+                      <Badge key={idx} variant="secondary" className="text-xs">
+                        {topic}
+                      </Badge>
+                    ))}
+                  </div>
+                  <Link to={quiz.path}>
+                    <Button className="w-full" variant="outline">
+                      Take Quiz
+                    </Button>
+                  </Link>
+                </Card>
+              ))}
+            </div>
+          </Card>
+
+          <Card className="p-8 md:p-12 border-2 bg-gradient-to-br from-card to-secondary mt-8">
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
               Current Research Phase
             </h3>
