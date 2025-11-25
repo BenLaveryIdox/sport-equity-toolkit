@@ -411,7 +411,8 @@ const TransgenderInclusionQuiz = () => {
             </CardHeader>
             <CardContent>
               <RadioGroup
-                value={answers[currentQuestionData.id]?.toString()}
+                key={currentQuestionData.id}
+                value={answers[currentQuestionData.id] !== undefined ? answers[currentQuestionData.id].toString() : ""}
                 onValueChange={(value) => handleAnswer(currentQuestionData.id, parseInt(value))}
                 className="space-y-4"
               >
