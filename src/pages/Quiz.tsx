@@ -421,9 +421,9 @@ const Quiz = () => {
                     key={index}
                     className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary transition-colors cursor-pointer"
                   >
-                    <RadioGroupItem value={index.toString()} id={`option-${index}`} />
+                    <RadioGroupItem value={index.toString()} id={`question-${currentQuestionData.id}-option-${index}`} />
                     <Label
-                      htmlFor={`option-${index}`}
+                      htmlFor={`question-${currentQuestionData.id}-option-${index}`}
                       className="flex-1 cursor-pointer text-base"
                     >
                       {option}
