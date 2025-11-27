@@ -145,28 +145,194 @@ const PolicyRecommendations = () => {
             </Accordion>
           </div>
 
-          <Card className="border-primary/20">
-            <CardHeader>
-              <CardTitle>Download Policy Templates</CardTitle>
-              <CardDescription>
-                Ready-to-use templates based on these recommendations
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <Button variant="outline" className="w-full justify-start">
-                <Download className="mr-2 h-4 w-4" />
-                LGBTQ+ Inclusion Policy Template
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                <Download className="mr-2 h-4 w-4" />
-                Facility Access Guidelines
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                <Download className="mr-2 h-4 w-4" />
-                Transgender Athlete Participation Framework
-              </Button>
-            </CardContent>
-          </Card>
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Download Policy Templates</h2>
+            <p className="text-muted-foreground mb-6">
+              Ready-to-use, customizable templates based on best practices and research
+            </p>
+            
+            <div className="space-y-6">
+              <Card className="border-primary/20">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <CardTitle className="text-xl">LGBTQ+ Inclusion Policy Template</CardTitle>
+                      <CardDescription>Comprehensive policy framework</CardDescription>
+                    </div>
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    A complete, ready-to-implement policy document that covers all aspects of LGBTQ+ inclusion 
+                    in sports organizations. Includes model language, implementation guidelines, and compliance checklists.
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm">Key Sections Include:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                      <li>Non-discrimination statement with explicit LGBTQ+ protection</li>
+                      <li>Gender-neutral language guidelines</li>
+                      <li>Inclusive facility access policies</li>
+                      <li>Reporting and complaint procedures</li>
+                      <li>Staff training requirements</li>
+                      <li>Policy review and update schedules</li>
+                    </ul>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-sm text-muted-foreground">PDF • 12 pages</span>
+                    <Button className="gap-2">
+                      <Download className="h-4 w-4" />
+                      Download Template
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/20">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <CardTitle className="text-xl">Facility Access Guidelines</CardTitle>
+                      <CardDescription>Safe and inclusive spaces for all athletes</CardDescription>
+                    </div>
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Detailed guidelines for creating inclusive changing rooms, bathrooms, and other facilities. 
+                    Includes architectural recommendations, privacy solutions, and staff training protocols.
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm">What's Included:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                      <li>Gender-neutral facility design standards</li>
+                      <li>Privacy considerations and solutions</li>
+                      <li>Transgender athlete facility access rights</li>
+                      <li>Staff communication and support guidelines</li>
+                      <li>Cost-effective implementation strategies</li>
+                      <li>Case studies from leading sports organizations</li>
+                    </ul>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-sm text-muted-foreground">PDF • 8 pages</span>
+                    <Button className="gap-2">
+                      <Download className="h-4 w-4" />
+                      Download Guidelines
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/20">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <CardTitle className="text-xl">Transgender Athlete Participation Framework</CardTitle>
+                      <CardDescription>Evidence-based participation policies</CardDescription>
+                    </div>
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    A comprehensive framework for developing fair and inclusive transgender athlete participation 
+                    policies at all levels of sport, aligned with international standards and best practices.
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm">Framework Components:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                      <li>International federation policy alignment</li>
+                      <li>Different approaches for recreational vs. competitive sport</li>
+                      <li>Medical and scientific evidence summary</li>
+                      <li>Legal compliance considerations</li>
+                      <li>Stakeholder communication strategies</li>
+                      <li>Implementation roadmap and timeline</li>
+                    </ul>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-sm text-muted-foreground">PDF • 15 pages</span>
+                    <Button className="gap-2">
+                      <Download className="h-4 w-4" />
+                      Download Framework
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/20">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <CardTitle className="text-xl">EDI Training Program Template</CardTitle>
+                      <CardDescription>Comprehensive staff training curriculum</CardDescription>
+                    </div>
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    A complete training program template designed for coaches, administrators, and volunteers. 
+                    Includes presentation slides, facilitator guides, and assessment materials.
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm">Training Modules:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                      <li>LGBTQ+ terminology and concepts</li>
+                      <li>Understanding unconscious bias</li>
+                      <li>Creating inclusive environments</li>
+                      <li>Responding to discrimination</li>
+                      <li>Bystander intervention techniques</li>
+                      <li>Legal responsibilities and compliance</li>
+                    </ul>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-sm text-muted-foreground">PDF • 20 pages + Slides</span>
+                    <Button className="gap-2">
+                      <Download className="h-4 w-4" />
+                      Download Program
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/20">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <CardTitle className="text-xl">Incident Reporting & Response Protocol</CardTitle>
+                      <CardDescription>Clear procedures for handling discrimination</CardDescription>
+                    </div>
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Step-by-step protocols for receiving, investigating, and resolving discrimination complaints. 
+                    Includes forms, flowcharts, and communication templates.
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm">Protocol Includes:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                      <li>Multiple confidential reporting channels</li>
+                      <li>Investigation procedures and timelines</li>
+                      <li>Decision-making frameworks</li>
+                      <li>Victim support services</li>
+                      <li>Disciplinary action guidelines</li>
+                      <li>Record-keeping and reporting requirements</li>
+                    </ul>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-sm text-muted-foreground">PDF • 10 pages + Forms</span>
+                    <Button className="gap-2">
+                      <Download className="h-4 w-4" />
+                      Download Protocol
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
