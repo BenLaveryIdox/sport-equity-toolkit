@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-campaign-start via-primary to-campaign-end">
+  return <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-campaign-start via-primary to-campaign-end">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -26,20 +24,13 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/explore">
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 group"
-              >
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 group">
                 Explore the Campaign
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/campaign-design">
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 transition-all"
-              >
+              <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 transition-all">
                 View Campaign Design
               </Button>
             </Link>
@@ -51,7 +42,7 @@ const Hero = () => {
               <div className="text-white/80">Organizations Researched</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-              <div className="text-3xl font-bold text-white mb-2">2024</div>
+              <div className="text-3xl font-bold text-white mb-2">2025</div>
               <div className="text-white/80">Current Initiative</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
@@ -61,8 +52,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
