@@ -21,21 +21,21 @@ const Timeline = () => {
       date: "Week 4",
       title: "Stakeholder Outreach",
       description: "Reached out to sports organizations for partnership opportunities and policy insights",
-      status: "current",
+      status: "completed",
       type: "outreach"
     },
     {
       date: "Week 5-6",
       title: "Campaign Development",
       description: "Design visibility campaign materials and educational resources for sporting authorities",
-      status: "upcoming",
+      status: "completed",
       type: "development"
     },
     {
       date: "Week 7-8",
       title: "Pilot Launch",
       description: "Launch pilot campaign with partner organizations and gather initial feedback",
-      status: "upcoming",
+      status: "current",
       type: "launch"
     },
     {
@@ -157,16 +157,16 @@ const Timeline = () => {
         <div className="mt-16 p-6 rounded-lg bg-card border">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold">Overall Progress</h3>
-            <span className="text-2xl font-bold text-primary">33%</span>
+            <span className="text-2xl font-bold text-primary">67%</span>
           </div>
           <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
-              style={{ width: "33%" }}
+              style={{ width: "67%" }}
             />
           </div>
           <p className="text-sm text-muted-foreground mt-3">
-            2 of 6 milestones completed • Currently in stakeholder outreach phase
+            4 of 6 milestones completed • Currently in pilot launch phase
           </p>
         </div>
       </div>
