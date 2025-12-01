@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, FileText, CheckCircle, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { InteractiveBackground } from "@/components/InteractiveBackground";
 
 const PolicyRecommendations = () => {
   return (
@@ -49,9 +50,11 @@ const PolicyRecommendations = () => {
             </CardContent>
           </Card>
 
-          <div className="mb-8">
+          <div className="mb-8 relative">
             <h2 className="text-2xl font-bold mb-4">Detailed Recommendations</h2>
-            <Accordion type="single" collapsible className="space-y-4">
+            <div className="relative min-h-[600px] rounded-xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm p-6">
+              <InteractiveBackground />
+              <Accordion type="single" collapsible className="space-y-4 relative z-10">
               <AccordionItem value="item-1" className="border rounded-lg px-6 bg-card">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center gap-3">
@@ -143,6 +146,7 @@ const PolicyRecommendations = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+            </div>
           </div>
 
           <div>
