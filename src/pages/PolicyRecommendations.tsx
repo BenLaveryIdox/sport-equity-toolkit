@@ -4,18 +4,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowLeft, FileText, CheckCircle, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
-import { 
-  downloadPDF, 
-  generateInclusionPolicyPDF, 
-  generateFacilityGuidelinesPDF, 
-  generateTransgenderFrameworkPDF, 
-  generateEDITrainingPDF, 
-  generateIncidentProtocolPDF 
-} from "@/utils/policyPdfGenerator";
-
+import { downloadPDF, generateInclusionPolicyPDF, generateFacilityGuidelinesPDF, generateTransgenderFrameworkPDF, generateEDITrainingPDF, generateIncidentProtocolPDF } from "@/utils/policyPdfGenerator";
 const PolicyRecommendations = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+  return <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4 py-12">
         <Link to="/">
           <Button variant="ghost" className="mb-8">
@@ -42,19 +33,10 @@ const PolicyRecommendations = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {[
-                "Explicit LGBTQ+ inclusion statements in organizational constitutions",
-                "Gender-neutral language across all policy documents",
-                "Comprehensive anti-discrimination clauses covering sexual orientation and gender identity",
-                "Clear reporting mechanisms for discrimination incidents",
-                "Mandatory EDI training for all staff and coaches",
-                "Regular policy review and update procedures"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
+              {["Explicit LGBTQ+ inclusion statements in organizational constitutions", "Gender-neutral language across all policy documents", "Comprehensive anti-discrimination clauses covering sexual orientation and gender identity", "Clear reporting mechanisms for discrimination incidents", "Mandatory EDI training for all staff and coaches", "Regular policy review and update procedures"].map((item, index) => <div key={index} className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">{item}</span>
-                </div>
-              ))}
+                </div>)}
             </CardContent>
           </Card>
 
@@ -191,7 +173,7 @@ const PolicyRecommendations = () => {
                     </ul>
                   </div>
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-sm text-muted-foreground">PDF • 12 pages</span>
+                    <span className="text-sm text-muted-foreground">PDF • 3 pages</span>
                     <Button className="gap-2" onClick={() => downloadPDF(generateInclusionPolicyPDF, "LGBTQ-Inclusion-Policy-Template.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Template
@@ -347,8 +329,6 @@ const PolicyRecommendations = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default PolicyRecommendations;
