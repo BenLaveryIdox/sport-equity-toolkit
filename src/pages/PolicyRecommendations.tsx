@@ -4,6 +4,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowLeft, FileText, CheckCircle, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
+import { 
+  downloadPDF, 
+  generateInclusionPolicyPDF, 
+  generateFacilityGuidelinesPDF, 
+  generateTransgenderFrameworkPDF, 
+  generateEDITrainingPDF, 
+  generateIncidentProtocolPDF 
+} from "@/utils/policyPdfGenerator";
 
 const PolicyRecommendations = () => {
   return (
@@ -184,7 +192,7 @@ const PolicyRecommendations = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <span className="text-sm text-muted-foreground">PDF • 12 pages</span>
-                    <Button className="gap-2">
+                    <Button className="gap-2" onClick={() => downloadPDF(generateInclusionPolicyPDF, "LGBTQ-Inclusion-Policy-Template.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Template
                     </Button>
@@ -220,7 +228,7 @@ const PolicyRecommendations = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <span className="text-sm text-muted-foreground">PDF • 8 pages</span>
-                    <Button className="gap-2">
+                    <Button className="gap-2" onClick={() => downloadPDF(generateFacilityGuidelinesPDF, "Facility-Access-Guidelines.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Guidelines
                     </Button>
@@ -256,7 +264,7 @@ const PolicyRecommendations = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <span className="text-sm text-muted-foreground">PDF • 15 pages</span>
-                    <Button className="gap-2">
+                    <Button className="gap-2" onClick={() => downloadPDF(generateTransgenderFrameworkPDF, "Transgender-Athlete-Participation-Framework.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Framework
                     </Button>
@@ -292,7 +300,7 @@ const PolicyRecommendations = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <span className="text-sm text-muted-foreground">PDF • 20 pages + Slides</span>
-                    <Button className="gap-2">
+                    <Button className="gap-2" onClick={() => downloadPDF(generateEDITrainingPDF, "EDI-Training-Program-Template.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Program
                     </Button>
@@ -328,7 +336,7 @@ const PolicyRecommendations = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <span className="text-sm text-muted-foreground">PDF • 10 pages + Forms</span>
-                    <Button className="gap-2">
+                    <Button className="gap-2" onClick={() => downloadPDF(generateIncidentProtocolPDF, "Incident-Reporting-Response-Protocol.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Protocol
                     </Button>
