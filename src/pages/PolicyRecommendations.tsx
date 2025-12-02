@@ -209,7 +209,7 @@ const PolicyRecommendations = () => {
                     </ul>
                   </div>
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-sm text-muted-foreground">PDF • 8 pages</span>
+                    <span className="text-sm text-muted-foreground">PDF • 3 pages</span>
                     <Button className="gap-2" onClick={() => downloadPDF(generateFacilityGuidelinesPDF, "Facility-Access-Guidelines.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Guidelines
