@@ -281,7 +281,7 @@ const PolicyRecommendations = () => {
                     </ul>
                   </div>
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-sm text-muted-foreground">PDF • 20 pages + Slides</span>
+                    <span className="text-sm text-muted-foreground">PDF • 3 pages</span>
                     <Button className="gap-2" onClick={() => downloadPDF(generateEDITrainingPDF, "EDI-Training-Program-Template.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Program
@@ -317,7 +317,7 @@ const PolicyRecommendations = () => {
                     </ul>
                   </div>
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-sm text-muted-foreground">PDF • 10 pages + Forms</span>
+                    <span className="text-sm text-muted-foreground">PDF • 3 pages</span>
                     <Button className="gap-2" onClick={() => downloadPDF(generateIncidentProtocolPDF, "Incident-Reporting-Response-Protocol.pdf")}>
                       <Download className="h-4 w-4" />
                       Download Protocol
