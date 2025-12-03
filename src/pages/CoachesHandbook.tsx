@@ -1,267 +1,53 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowLeft, Download, Search, BookOpen, Users, Heart, Shield, MessageCircle } from "lucide-react";
+import { ArrowLeft, Download, Search, BookmarkCheck } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import QuickReferenceCard from "@/components/handbook/QuickReferenceCard";
+import BookmarkButton from "@/components/handbook/BookmarkButton";
+import { handbookSections, categoryLabels } from "@/data/handbookSections";
 import { jsPDF } from "jspdf";
 
-interface HandbookSection {
-  id: string;
-  title: string;
-  icon: React.ReactNode;
-  category: "lgbtq" | "transgender" | "general";
-  content: {
-    heading: string;
-    text: string;
-    tips?: string[];
-  }[];
-}
-
-const handbookSections: HandbookSection[] = [
-  {
-    id: "understanding-lgbtq",
-    title: "Understanding LGBTQ+ Athletes",
-    icon: <Users className="h-5 w-5" />,
-    category: "lgbtq",
-    content: [
-      {
-        heading: "Key Terminology",
-        text: "Understanding the correct terminology is essential for creating an inclusive environment. LGBTQ+ stands for Lesbian, Gay, Bisexual, Transgender, Queer/Questioning, and others. Each identity is unique and should be respected.",
-        tips: [
-          "Use the terms athletes prefer for themselves",
-          "If unsure, ask respectfully and privately",
-          "Avoid making assumptions about anyone's identity",
-          "Stay updated on evolving terminology"
-        ]
-      },
-      {
-        heading: "Creating Safe Spaces",
-        text: "A safe space is an environment where LGBTQ+ athletes feel comfortable being themselves without fear of judgment, discrimination, or harassment. This includes physical spaces like locker rooms and social spaces like team gatherings.",
-        tips: [
-          "Display inclusive signage and materials",
-          "Address homophobic or transphobic comments immediately",
-          "Ensure changing facilities accommodate all athletes",
-          "Foster team culture that celebrates diversity"
-        ]
-      },
-      {
-        heading: "Addressing Bias and Discrimination",
-        text: "Bias can be conscious or unconscious. As a coach, you must actively work to identify and address discriminatory behavior, whether from yourself, other coaches, athletes, or spectators.",
-        tips: [
-          "Reflect on your own assumptions and biases",
-          "Establish clear anti-discrimination policies",
-          "Train staff on recognizing microaggressions",
-          "Create reporting mechanisms for incidents"
-        ]
-      }
-    ]
-  },
-  {
-    id: "supporting-lgb-athletes",
-    title: "Supporting LGB Athletes",
-    icon: <Heart className="h-5 w-5" />,
-    category: "lgbtq",
-    content: [
-      {
-        heading: "Coming Out in Sports",
-        text: "An athlete may choose to come out to you as their coach. This is a significant moment of trust. Your response can greatly impact their wellbeing and continued participation in sport.",
-        tips: [
-          "Thank them for trusting you",
-          "Maintain confidentiality unless given permission",
-          "Ask how you can best support them",
-          "Continue treating them the same as other athletes"
-        ]
-      },
-      {
-        heading: "Team Dynamics",
-        text: "Managing team dynamics when an athlete is openly LGB requires sensitivity. Focus on fostering respect and unity while being prepared to address any issues that arise.",
-        tips: [
-          "Lead by example with inclusive language",
-          "Address negative behavior promptly",
-          "Create opportunities for team bonding",
-          "Celebrate diverse backgrounds within the team"
-        ]
-      },
-      {
-        heading: "Communication with Parents/Guardians",
-        text: "Some LGB athletes may not be out to their families. Navigating communication requires discretion and prioritizing the athlete's safety and wishes.",
-        tips: [
-          "Never out an athlete without consent",
-          "Use neutral language in communications",
-          "Be prepared for varying family attitudes",
-          "Know local resources for family support"
-        ]
-      }
-    ]
-  },
-  {
-    id: "transgender-athletes-basics",
-    title: "Transgender Athletes: The Basics",
-    icon: <BookOpen className="h-5 w-5" />,
-    category: "transgender",
-    content: [
-      {
-        heading: "Understanding Gender Identity",
-        text: "Gender identity is a person's internal sense of their own gender, which may or may not correspond with their sex assigned at birth. Transgender individuals have a gender identity different from their assigned sex.",
-        tips: [
-          "Gender identity is separate from sexual orientation",
-          "Respect each person's self-identified gender",
-          "Understand that transitioning is different for everyone",
-          "Never ask invasive questions about medical status"
-        ]
-      },
-      {
-        heading: "Names and Pronouns",
-        text: "Using correct names and pronouns is fundamental to respecting transgender athletes. Misgendering (using wrong pronouns) can be deeply hurtful and create an unwelcoming environment.",
-        tips: [
-          "Ask all athletes their preferred pronouns",
-          "Practice using correct pronouns consistently",
-          "Correct yourself quickly if you make mistakes",
-          "Gently correct others who misgender teammates"
-        ]
-      },
-      {
-        heading: "Legal and Policy Considerations",
-        text: "Policies regarding transgender athletes vary by sport, governing body, and region. Stay informed about current policies while advocating for inclusive practices.",
-        tips: [
-          "Know your sport's governing body policies",
-          "Understand local anti-discrimination laws",
-          "Advocate for fair and inclusive policies",
-          "Connect with LGBTQ+ sports organizations for guidance"
-        ]
-      }
-    ]
-  },
-  {
-    id: "transgender-practical",
-    title: "Practical Support for Transgender Athletes",
-    icon: <Shield className="h-5 w-5" />,
-    category: "transgender",
-    content: [
-      {
-        heading: "Facility Access",
-        text: "Transgender athletes should have access to facilities that match their gender identity. This may require creative solutions and clear policies to ensure everyone feels safe and comfortable.",
-        tips: [
-          "Provide private changing options for those who want them",
-          "Ensure policies allow access matching gender identity",
-          "Address concerns from other athletes sensitively",
-          "Consider installing privacy curtains or partitions"
-        ]
-      },
-      {
-        heading: "Competition and Team Placement",
-        text: "Questions about which team or category a transgender athlete should compete in can be complex. Prioritize the athlete's wellbeing while working within governing body guidelines.",
-        tips: [
-          "Follow sport-specific transgender policies",
-          "Advocate for policies prioritizing inclusion",
-          "Focus on participation over competitive advantage debates",
-          "Support the athlete regardless of competition decisions"
-        ]
-      },
-      {
-        heading: "Supporting Athletes in Transition",
-        text: "Athletes who are transitioning may face unique challenges including changes in physical ability, mental health struggles, and social adjustment. Provide consistent support throughout their journey.",
-        tips: [
-          "Check in regularly about their needs",
-          "Be flexible with expectations during transition",
-          "Connect them with appropriate resources",
-          "Maintain their place on the team"
-        ]
-      }
-    ]
-  },
-  {
-    id: "communication-strategies",
-    title: "Effective Communication Strategies",
-    icon: <MessageCircle className="h-5 w-5" />,
-    category: "general",
-    content: [
-      {
-        heading: "Inclusive Language",
-        text: "The language you use sets the tone for your entire team. Adopting inclusive language demonstrates respect and creates a welcoming environment for all athletes.",
-        tips: [
-          "Say 'athletes' or 'team' instead of 'guys'",
-          "Avoid gendered assumptions in examples",
-          "Use 'partner' instead of 'boyfriend/girlfriend'",
-          "Include diverse examples when discussing relationships"
-        ]
-      },
-      {
-        heading: "Having Difficult Conversations",
-        text: "As a coach, you may need to address sensitive topics including discrimination, coming out, or conflicts related to LGBTQ+ issues. Approach these conversations with empathy and openness.",
-        tips: [
-          "Choose private, comfortable settings",
-          "Listen more than you speak",
-          "Validate feelings before problem-solving",
-          "Follow up after initial conversations"
-        ]
-      },
-      {
-        heading: "Educating Your Team",
-        text: "Proactive education helps prevent issues and builds a more inclusive team culture. Incorporate diversity and inclusion into regular team activities and discussions.",
-        tips: [
-          "Include LGBTQ+ topics in team meetings",
-          "Invite speakers from LGBTQ+ organizations",
-          "Share resources and educational materials",
-          "Lead discussions on respect and inclusion"
-        ]
-      }
-    ]
-  },
-  {
-    id: "crisis-response",
-    title: "Crisis Response and Support",
-    icon: <Shield className="h-5 w-5" />,
-    category: "general",
-    content: [
-      {
-        heading: "Responding to Discrimination Incidents",
-        text: "When discrimination occurs, swift and appropriate action is essential. Your response demonstrates your commitment to inclusion and affects the safety of LGBTQ+ athletes.",
-        tips: [
-          "Intervene immediately to stop harmful behavior",
-          "Support the affected athlete privately",
-          "Document incidents thoroughly",
-          "Follow established reporting procedures"
-        ]
-      },
-      {
-        heading: "Mental Health Awareness",
-        text: "LGBTQ+ individuals face higher rates of mental health challenges due to discrimination and social stigma. Be aware of warning signs and know how to connect athletes with support.",
-        tips: [
-          "Learn warning signs of mental health struggles",
-          "Know local LGBTQ+-affirming mental health resources",
-          "Create an open-door policy for athletes",
-          "Take all concerns seriously"
-        ]
-      },
-      {
-        heading: "Emergency Resources",
-        text: "Have emergency resources readily available for athletes in crisis. This includes mental health hotlines, local LGBTQ+ organizations, and support services.",
-        tips: [
-          "Keep a list of LGBTQ+ support hotlines",
-          "Know local LGBTQ+ youth organizations",
-          "Connect with school counselors or HR",
-          "Have protocols for urgent situations"
-        ]
-      }
-    ]
-  }
-];
+const BOOKMARKS_STORAGE_KEY = "coaches-handbook-bookmarks";
 
 const CoachesHandbook = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<"all" | "lgbtq" | "transgender" | "general">("all");
+  const [selectedCategory, setSelectedCategory] = useState<"all" | "lgbtq" | "transgender" | "disability" | "intersex" | "general" | "bookmarked">("all");
+  const [bookmarks, setBookmarks] = useState<string[]>([]);
+
+  // Load bookmarks from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem(BOOKMARKS_STORAGE_KEY);
+    if (saved) {
+      setBookmarks(JSON.parse(saved));
+    }
+  }, []);
+
+  // Save bookmarks to localStorage
+  useEffect(() => {
+    localStorage.setItem(BOOKMARKS_STORAGE_KEY, JSON.stringify(bookmarks));
+  }, [bookmarks]);
+
+  const toggleBookmark = (sectionId: string) => {
+    setBookmarks((prev) =>
+      prev.includes(sectionId)
+        ? prev.filter((id) => id !== sectionId)
+        : [...prev, sectionId]
+    );
+  };
 
   const filteredSections = useMemo(() => {
     return handbookSections.filter((section) => {
-      const matchesCategory = selectedCategory === "all" || section.category === selectedCategory;
-      
+      const matchesCategory =
+        selectedCategory === "all" ||
+        (selectedCategory === "bookmarked" ? bookmarks.includes(section.id) : section.category === selectedCategory);
+
       if (!searchQuery.trim()) return matchesCategory;
-      
+
       const query = searchQuery.toLowerCase();
       const matchesTitle = section.title.toLowerCase().includes(query);
       const matchesContent = section.content.some(
@@ -270,10 +56,10 @@ const CoachesHandbook = () => {
           item.text.toLowerCase().includes(query) ||
           item.tips?.some((tip) => tip.toLowerCase().includes(query))
       );
-      
+
       return matchesCategory && (matchesTitle || matchesContent);
     });
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory, bookmarks]);
 
   const highlightText = (text: string, query: string) => {
     if (!query.trim()) return text;
@@ -307,7 +93,7 @@ const CoachesHandbook = () => {
 
     doc.setFontSize(12);
     doc.setTextColor(100, 100, 100);
-    doc.text("Supporting LGBTQ+ and Transgender Athletes", pageWidth / 2, y, { align: "center" });
+    doc.text("Supporting LGBTQ+, Transgender, Disabled & Intersex Athletes", pageWidth / 2, y, { align: "center" });
     y += 20;
 
     // Content
@@ -376,7 +162,7 @@ const CoachesHandbook = () => {
       doc.text(`EDI Sports - Coaches Handbook | Page ${i} of ${pageCount}`, pageWidth / 2, 290, { align: "center" });
     }
 
-    doc.save("coaches-handbook-lgbtq-transgender.pdf");
+    doc.save("coaches-handbook-inclusive-sports.pdf");
   };
 
   return (
@@ -397,7 +183,7 @@ const CoachesHandbook = () => {
               Coaches Handbook
             </h1>
             <p className="text-muted-foreground mt-2">
-              A comprehensive guide for coaches supporting LGBTQ+ and transgender athletes
+              A comprehensive guide for coaches supporting diverse athletes
             </p>
           </div>
           <Button onClick={generatePDF} className="flex items-center gap-2">
@@ -428,6 +214,14 @@ const CoachesHandbook = () => {
                   All Topics
                 </Badge>
                 <Badge
+                  variant={selectedCategory === "bookmarked" ? "default" : "outline"}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedCategory("bookmarked")}
+                >
+                  <BookmarkCheck className="h-3 w-3 mr-1" />
+                  Bookmarked ({bookmarks.length})
+                </Badge>
+                <Badge
                   variant={selectedCategory === "lgbtq" ? "default" : "outline"}
                   className="cursor-pointer"
                   onClick={() => setSelectedCategory("lgbtq")}
@@ -440,6 +234,20 @@ const CoachesHandbook = () => {
                   onClick={() => setSelectedCategory("transgender")}
                 >
                   Transgender
+                </Badge>
+                <Badge
+                  variant={selectedCategory === "disability" ? "default" : "outline"}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedCategory("disability")}
+                >
+                  Disability
+                </Badge>
+                <Badge
+                  variant={selectedCategory === "intersex" ? "default" : "outline"}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedCategory("intersex")}
+                >
+                  Intersex
                 </Badge>
                 <Badge
                   variant={selectedCategory === "general" ? "default" : "outline"}
@@ -462,7 +270,11 @@ const CoachesHandbook = () => {
         {filteredSections.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <p className="text-muted-foreground">No sections found matching your search. Try different keywords.</p>
+              <p className="text-muted-foreground">
+                {selectedCategory === "bookmarked"
+                  ? "No bookmarked sections yet. Click the bookmark icon on any section to save it."
+                  : "No sections found matching your search. Try different keywords."}
+              </p>
             </CardContent>
           </Card>
         ) : (
@@ -470,18 +282,25 @@ const CoachesHandbook = () => {
             {filteredSections.map((section) => (
               <Card key={section.id}>
                 <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                      {section.icon}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                        {section.icon}
+                      </div>
+                      <div>
+                        <CardTitle>{highlightText(section.title, searchQuery)}</CardTitle>
+                        <CardDescription>
+                          <Badge variant="secondary" className="mt-1">
+                            {categoryLabels[section.category]}
+                          </Badge>
+                        </CardDescription>
+                      </div>
                     </div>
-                    <div>
-                      <CardTitle>{highlightText(section.title, searchQuery)}</CardTitle>
-                      <CardDescription>
-                        <Badge variant="secondary" className="mt-1">
-                          {section.category === "lgbtq" ? "LGBTQ+" : section.category === "transgender" ? "Transgender" : "General"}
-                        </Badge>
-                      </CardDescription>
-                    </div>
+                    <BookmarkButton
+                      sectionId={section.id}
+                      isBookmarked={bookmarks.includes(section.id)}
+                      onToggle={toggleBookmark}
+                    />
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -519,9 +338,12 @@ const CoachesHandbook = () => {
         )}
 
         {/* Quick Reference Card */}
+        <QuickReferenceCard />
+
+        {/* Key Principles */}
         <Card className="mt-8 bg-gradient-to-br from-primary/5 to-campaign-end/5">
           <CardHeader>
-            <CardTitle>Quick Reference: Key Principles</CardTitle>
+            <CardTitle>Key Principles</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-3 gap-4">
