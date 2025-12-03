@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import ExploreCampaign from "./pages/ExploreCampaign";
+import CoachesHandbook from "./pages/CoachesHandbook";
 import CampaignDesign from "./pages/CampaignDesign";
 import AwarenessPosters from "./pages/AwarenessPosters";
 import JoinMovement from "./pages/JoinMovement";
@@ -29,7 +29,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/explore" element={<ExploreCampaign />} />
+          <Route path="/coaches-handbook" element={<CoachesHandbook />} />
           <Route path="/campaign-design" element={<CampaignDesign />} />
           <Route path="/awareness-posters" element={<AwarenessPosters />} />
           <Route path="/join-movement" element={<JoinMovement />} />

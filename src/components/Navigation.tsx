@@ -26,7 +26,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { to: "/explore", label: "Explore Campaign" },
+    { to: "/coaches-handbook", label: "Coaches Handbook" },
     { to: "/policy-recommendations", label: "Policy Recommendations" },
     { to: "/visibility-campaign", label: "Visibility Campaign" },
     { to: "/educational-resources", label: "Educational Resources" },
